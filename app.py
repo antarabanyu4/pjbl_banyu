@@ -8,11 +8,11 @@ with st.sidebar:
     col1, col2, col3 = st.columns((1,2,1))
     with col2:
         st.image("mtk.png")
-    st.title("Bangun Datarat")
+    st.title("Bangun Datar")
 
     pilihan = st.selectbox(
         "Pilih Bangun Datar",
-        ("Persegi", "Persegi Panjang", "Lingkaran"))
+        ("Persegi", "Persegi Panjang", "Lingkaran", "Segitiga", "Trapesium",))
     st.caption("Dibuat Dengan 💘 Oleh **Antara Banyu**")
 
 match pilihan:
@@ -50,6 +50,36 @@ match pilihan:
             luas = 3.14 * jari_jari * jari_jari
             keliling = 2 * 3.14 * jari_jari
             st.success(f"Luas Lingkaran Adalah {luas: .2f} Dan Keliling Lingkaran Adalah {keliling: .2f}")
+            st.balloons()
+
+    case "Segitiga":
+        st.title("Segitiga")
+        st.markdown("Menghitung `luas` dan `keliling` segitiga")
+        alas = st.number_input("Masukkan Alas")
+        tinggi = st.number_input("Masukkan Tinggi")
+        sisi1 = st.number_input("Masukkan Sisi 1")
+        sisi2 = st.number_input("Masukkan Sisi 2")
+        sisi3 = st.number_input("Masukkan Sisi 3")
+        if st.button("Hitung", type="primary"):
+            luas = 0.5 * alas * tinggi
+            keliling = sisi1 + sisi2 + sisi3
+            st.success(f"Luas Segitiga Adalah {luas: .2f} Dan Keliling Segitiga Adalah {keliling: .2f}")
+            st.balloons()
+
+    case "Trapesium":
+        st.title("Trapesium")
+        st.markdown("Menghitung `luas` dan `keliling` trapesium")
+        alas1 = st.number_input("Masukkan Alas 1")
+        alas2 = st.number_input("Masukkan Alas 2")
+        tinggi = st.number_input("Masukkan Tinggi")
+        sisi1 = st.number_input("Masukkan Sisi 1")
+        sisi2 = st.number_input("Masukkan Sisi 2")
+        sisi3 = st.number_input("Masukkan Sisi 3")
+        sisi4 = st.number_input("Masukkan Sisi 4")
+        if st.button("Hitung", type="primary"):
+            luas = 0.5 * (alas1 + alas2) * tinggi
+            keliling = sisi1 + sisi2 + sisi3 + sisi4
+            st.success(f"Luas Trapesium Adalah {luas: .2f} Dan Keliling Trapesium Adalah {keliling: .2f}")
             st.balloons()
 
     case _:
